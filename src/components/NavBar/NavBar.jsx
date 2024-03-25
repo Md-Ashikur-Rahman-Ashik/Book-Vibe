@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const NavBar = () => {
   return (
@@ -10,42 +10,27 @@ const NavBar = () => {
         >
           Book Vibe
         </Link>
-        <ul className="items-stretch hidden space-x-3 lg:flex">
+        <ul className="items-stretch hidden space-x-3 lg:flex font-work-sans">
           <li className="flex">
-            <a
-              rel="noopener noreferrer"
-              href="#"
-              className="flex items-center px-4 -mb-1 border-b-2 dark:border- text-violet-400 border-violet-400"
+            <NavLink to="/"
+              className={`flex items-center px-4 rounded-lg border-[#23BE0A] ${({isActive}) => isActive? "border-2": ""}`}
             >
-              Link
-            </a>
+              Home
+            </NavLink>
           </li>
           <li className="flex">
-            <a
-              rel="noopener noreferrer"
-              href="#"
-              className="flex items-center px-4 -mb-1 border-b-2 dark:border-"
+            <NavLink to="/listedBooks"
+              className={`flex items-center px-4 rounded-lg border-[#23BE0A] ${({isActive}) => (isActive? "border-2": "")}`}
             >
-              Link
-            </a>
+              Listed Books
+            </NavLink>
           </li>
           <li className="flex">
-            <a
-              rel="noopener noreferrer"
-              href="#"
-              className="flex items-center px-4 -mb-1 border-b-2 dark:border-"
+            <NavLink
+              className="flex items-center px-4 rounded-lg hover:border-2 border-[#23BE0A]"
             >
-              Link
-            </a>
-          </li>
-          <li className="flex">
-            <a
-              rel="noopener noreferrer"
-              href="#"
-              className="flex items-center px-4 -mb-1 border-b-2 dark:border-"
-            >
-              Link
-            </a>
+              Pages To Read
+            </NavLink>
           </li>
         </ul>
         <div className="items-center flex-shrink-0 hidden lg:flex">
