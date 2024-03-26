@@ -25,7 +25,7 @@ const NavBar = () => {
           </li>
           <li className="flex">
             <NavLink
-              to="/listedBooks"
+              to="/listed-books"
               className={({ isActive }) =>
                 isActive
                   ? "border-2 flex items-center px-4 rounded-lg border-[#23BE0A] text-[#23BE0A]"
