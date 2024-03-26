@@ -1,4 +1,6 @@
 import { useLoaderData, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
+import { saveBook } from "../../utils";
 
 const BookDetails = () => {
   const book = useLoaderData();
@@ -19,6 +21,14 @@ const BookDetails = () => {
     image,
   } = selectedBook;
 
+  const handleReadingList = (selectedBook) => {
+    saveBook(selectedBook);
+  };
+
+  const handleWishlist = (selectedBook) => {
+    saveBook(selectedBook);
+  };
+
   return (
     <div className="mx-32 mt-14 flex gap-10">
       <div className="bg-[#1313130d] w-1/2 flex justify-center rounded-2xl">
@@ -38,7 +48,10 @@ const BookDetails = () => {
         <p className="flex gap-4 mt-8 border-b-2 pb-4">
           <span className="font-work-sans font-bold">Tag</span>
           {tags.map((tag, index) => (
-            <li className="text-[#23BE0A] list-none font-work-sans font-medium" key={index}>
+            <li
+              className="text-[#23BE0A] list-none font-work-sans font-medium"
+              key={index}
+            >
               #{tag}
             </li>
           ))}
@@ -60,8 +73,18 @@ const BookDetails = () => {
           <p className="font-work-sans font-semibold">{rating}</p>
         </div>
         <div className="mt-6 flex gap-8">
-            <button className="self-center px-8 py-3 text-[18px] font-semibold font-work-sans rounded-lg text-black border">Read</button>
-            <button className="bg-[#50B1C9] self-center px-8 py-3 text-[18px] font-semibold rounded-lg text-white border">Wishlist</button>
+          <button
+            onClick={() => handleReadingList(selectedBook)}
+            className="self-center px-8 py-3 text-[18px] font-semibold font-work-sans rounded-lg text-black border"
+          >
+            Read
+          </button>
+          <button
+            onClick={() => handleWishlist(selectedBook)}
+            className="bg-[#50B1C9] self-center px-8 py-3 text-[18px] font-semibold rounded-lg text-white border"
+          >
+            Wishlist
+          </button>
         </div>
       </div>
     </div>

@@ -9,6 +9,8 @@ import Home from "./components/Home/Home.jsx";
 import BookDetails from "./components/BookDetails/BookDetails.jsx";
 import "./components/Banner/Banner.css"
 import "./components/Book/Book.css"
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const router = createBrowserRouter([
   {
@@ -41,5 +43,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <RouterProvider router={router}>
       <App />
     </RouterProvider>
+    <ToastContainer />
   </React.StrictMode>
 );
