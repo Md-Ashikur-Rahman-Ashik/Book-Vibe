@@ -14,6 +14,8 @@ import "react-toastify/dist/ReactToastify.css";
 import BookCard from "./components/BookCard/BookCard.jsx";
 import ErrorPage from "./components/ErrorPage/ErrorPage.jsx";
 import WishlistCard from "./components/WishlistCard/WishlistCard.jsx";
+import AuthorSpotlight from "./components/AuthorSpotlight/AuthorSpotlight.jsx";
+import BookClub from "./components/BookClub/BookClub.jsx";
 
 const router = createBrowserRouter([
   {
@@ -53,6 +55,14 @@ const router = createBrowserRouter([
         path: "*",
         element: <ErrorPage></ErrorPage>,
       },
+      {
+        path: "/author-spotlight",
+        element: <AuthorSpotlight></AuthorSpotlight>
+      },
+      {
+        path: "/book-club",
+        element: <BookClub></BookClub>
+      }
     ],
   },
 ]);
