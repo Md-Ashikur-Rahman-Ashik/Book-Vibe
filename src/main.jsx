@@ -9,9 +9,11 @@ import Home from "./components/Home/Home.jsx";
 import BookDetails from "./components/BookDetails/BookDetails.jsx";
 import "./components/Banner/Banner.css";
 import "./components/Book/Book.css";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import BookCard from "./components/BookCard/BookCard.jsx";
+import ErrorPage from "./components/ErrorPage/ErrorPage.jsx";
+import WishlistCard from "./components/WishlistCard/WishlistCard.jsx";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +33,11 @@ const router = createBrowserRouter([
             element: <BookCard></BookCard>,
             loader: () => fetch("books.json"),
           },
+          {
+            path: "wishlist-card",
+            element: <WishlistCard></WishlistCard>,
+            loader: () => fetch("books.json"),
+          },
         ],
       },
       {
@@ -41,6 +48,10 @@ const router = createBrowserRouter([
       {
         path: "/pages-to-read",
         element: <PagesToRead></PagesToRead>,
+      },
+      {
+        path: "*",
+        element: <ErrorPage></ErrorPage>,
       },
     ],
   },

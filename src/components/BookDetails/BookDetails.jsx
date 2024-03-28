@@ -1,5 +1,4 @@
-import { useLoaderData, useParams } from "react-router-dom";
-import { toast } from "react-toastify";
+import { Link, useLoaderData, useParams } from "react-router-dom";
 import { deleteBook, saveBook, wishBook } from "../../utils";
 import { useState } from "react";
 
@@ -25,18 +24,17 @@ const BookDetails = () => {
   const [click, setClick] = useState(false);
 
   const handleWishlist = (selectedBook) => {
-    setClick(true)
+    setClick(true);
     wishBook(selectedBook);
   };
 
   const handleReadingList = (selectedBook) => {
-    if(click === true){
-      deleteBook(selectedBook.bookId)
-      setClick(false)
+    if (click === true) {
+      deleteBook(selectedBook.bookId);
+      setClick(false);
     }
     saveBook(selectedBook);
   };
-
 
   return (
     <div className="mx-32 mt-14 flex gap-10">
@@ -88,12 +86,12 @@ const BookDetails = () => {
           >
             Read
           </button>
-          <button
-            onClick={() => handleWishlist(selectedBook)}
-            className="bg-[#50B1C9] self-center px-8 py-3 text-[18px] font-semibold rounded-lg text-white border"
-          >
-            Wishlist
-          </button>
+            <button
+              onClick={() => handleWishlist(selectedBook)}
+              className="bg-[#50B1C9] self-center px-8 py-3 text-[18px] font-semibold rounded-lg text-white border"
+            >
+              Wishlist
+            </button>
         </div>
       </div>
     </div>

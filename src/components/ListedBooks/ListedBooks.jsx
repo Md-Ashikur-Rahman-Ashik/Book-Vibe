@@ -72,7 +72,7 @@ const ListedBooks = () => {
           <span>Read Books</span>
         </Link>
         <Link
-          to={`wishlist-card`}
+          to=""
           onClick={() => setTabIndex(1)}
           className={`flex items-center px-5 py-3 space-x-2 ${
             tabIndex === 1 ? "border border-b-0" : "border-b"
