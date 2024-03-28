@@ -15,7 +15,7 @@ const ListedBooks = () => {
   }, []);
 
   return (
-    <div className="mx-36">
+    <div className="mx-8 lg:mx-36">
       <h1 className="font-work-sans font-bold text-2xl text-center mt-9 mb-8 bg-[#1313130d] py-8 rounded-2xl">
         Books
       </h1>

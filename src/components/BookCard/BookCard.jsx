@@ -15,8 +15,8 @@ const BookCard = ({ book }) => {
   } = book;
 
   return (
-    <div className="card-compact flex gap-6 bg-base-100 border p-4 font-work-sans rounded-2xl">
-      <div className="bg-[#F3F3F3] p-8 rounded-2xl">
+    <div className="card-compact flex gap-3 lg:gap-6 bg-base-100 border p-2 lg:p-4 font-work-sans rounded-2xl">
+      <div className="bg-[#F3F3F3] p-2 lg:p-8 rounded-2xl">
         <figure>
           <img src={image} alt="Shoes" />
         </figure>
@@ -27,25 +27,29 @@ const BookCard = ({ book }) => {
             {bookName}
           </h2>
           <p className="font-medium font-work-sans mt-3">By: {author}</p>
-          <ul className="flex gap-3 font-medium mt-2">
-            <span>Tag: </span>
-            {tags.map((tag, index) => (
-              <li className="text-[#23BE0A]" key={index}>
-                #{tag}
-              </li>
-            ))}
-            <span className="flex gap-1">
-              <img src="https://svgshare.com/i/14mP.svg" alt="" /> Year of
-              Publishing: {yearOfPublishing}
-            </span>
+          <ul className="flex flex-col lg:flex-row gap-3 font-medium mt-2">
+            <div className="flex gap-3 font-medium mt-2">
+              <span>Tag: </span>
+              {tags.map((tag, index) => (
+                <li className="text-[#23BE0A]" key={index}>
+                  #{tag}
+                </li>
+              ))}
+            </div>
+            <div className="flex gap-3 font-medium mt-2 mb-2 lg:mb-0">
+              <span className="flex gap-1">
+                <img src="https://svgshare.com/i/14mP.svg" alt="" /> Year of
+                Publishing: {yearOfPublishing}
+              </span>
+            </div>
           </ul>
-          <div className="flex mt-2 pb-8 border-b">
-            <div className="flex gap-1 w-2/5">
-              <img src="https://svgshare.com/i/14kA.svg" alt="" /> Publisher:{" "}
+          <div className="flex flex-col lg:flex-row mt-2 pb-8 border-b">
+            <div className="flex gap-1 w-1/2 lg:w-2/5 mb-2 lg:mb-0">
+              <img src="https://svgshare.com/i/14kA.svg" alt="" /> Publisher:
               {publisher}
             </div>
             <div className="flex gap-2 w-1/2">
-              <img src="https://svgshare.com/i/14mw.svg" alt="" /> Pages:{" "}
+              <img src="https://svgshare.com/i/14mw.svg" alt="" /> Pages:
               {totalPages}
             </div>
           </div>

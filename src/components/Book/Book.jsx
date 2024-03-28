@@ -24,7 +24,7 @@ const Book = ({ book }) => {
             {bookName}
           </h2>
           <p className="font-medium mt-3 border-b pb-8">By: {author}</p>
-          <div className="card-actions mt-4 flex justify-between">
+          <div className="card-actions mt-4 flex gap-10 lg:gap-0 lg:justify-between">
             <p>{category}</p>
             <div className="flex gap-2 items-center justify-center">
               {rating} <img src="https://svgshare.com/i/14jY.svg" alt="" />

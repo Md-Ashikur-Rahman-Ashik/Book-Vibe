@@ -11,11 +11,11 @@ const Books = () => {
   }, []);
 
   return (
-    <div className="mt-24 mx-32">
+    <div className="mt-24 mx-8 lg:mx-32">
       <h2 className="font-playfair-display font-bold text-4xl text-center mb-10">
         Books
       </h2>
-      <div className="grid grid-cols-3 gap-6 mb-28">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-28">
         {
             books.map(book => <Book key={book.bookId} book={book}></Book>)
         }
