@@ -7,10 +7,11 @@ import ListedBooks from "./components/ListedBooks/ListedBooks.jsx";
 import PagesToRead from "./components/PagesToRead/PagesToRead.jsx";
 import Home from "./components/Home/Home.jsx";
 import BookDetails from "./components/BookDetails/BookDetails.jsx";
-import "./components/Banner/Banner.css"
-import "./components/Book/Book.css"
+import "./components/Banner/Banner.css";
+import "./components/Book/Book.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import BookCard from "./components/BookCard/BookCard.jsx";
 
 const router = createBrowserRouter([
   {
@@ -24,11 +25,18 @@ const router = createBrowserRouter([
       {
         path: "/listed-Books",
         element: <ListedBooks></ListedBooks>,
+        children: [
+          {
+            index: true,
+            element: <BookCard></BookCard>,
+            loader: () => fetch("books.json"),
+          },
+        ],
       },
       {
         path: "/books/:bookId",
         element: <BookDetails></BookDetails>,
-        loader: () => fetch("../public/books.json")
+        loader: () => fetch("./books.json"),
       },
       {
         path: "/pages-to-read",

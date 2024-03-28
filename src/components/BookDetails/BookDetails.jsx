@@ -1,6 +1,7 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import { saveBook } from "../../utils";
+import { deleteBook, saveBook, wishBook } from "../../utils";
+import { useState } from "react";
 
 const BookDetails = () => {
   const book = useLoaderData();
@@ -21,13 +22,21 @@ const BookDetails = () => {
     image,
   } = selectedBook;
 
+  const [click, setClick] = useState(false);
+
+  const handleWishlist = (selectedBook) => {
+    setClick(true)
+    wishBook(selectedBook);
+  };
+
   const handleReadingList = (selectedBook) => {
+    if(click === true){
+      deleteBook(selectedBook.bookId)
+      setClick(false)
+    }
     saveBook(selectedBook);
   };
 
-  const handleWishlist = (selectedBook) => {
-    saveBook(selectedBook);
-  };
 
   return (
     <div className="mx-32 mt-14 flex gap-10">

@@ -21,12 +21,24 @@ export const saveBook = selectedBook => {
     }
     books.push(selectedBook);
     localStorage.setItem("books", JSON.stringify(books));
-    toast.success("Book added to reading list")
+    toast.success("Book added to Reading List")
 }
 
 export const deleteBook = id => {
     let books = getBooks();
-    const remaining = books.filter(b => b.id !== id);
+    const remaining = books.filter(b => b.bookId !== id);
     localStorage.setItem("books", JSON.stringify(remaining))
-    toast.success("Book removed from Wishlist")
+}
+
+export const wishBook = selectedBook => {
+
+    let books = getBooks();
+    const isExist = books.find(b => b.bookId === selectedBook.bookId)
+
+    if(isExist){
+        return toast.error("Already Added!!")
+    }
+    books.push(selectedBook);
+    localStorage.setItem("books", JSON.stringify(books));
+    toast.success("Book added to Wishlist")
 }
